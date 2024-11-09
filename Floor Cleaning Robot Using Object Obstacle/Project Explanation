@@ -1,0 +1,6 @@
+This is a basic robot project that uses ultrasonic sensors and DC motors to navigate autonomously. It is designed to move around and avoid obstacles using three ultrasonic sensors placed at the front left, center, and right of the robot.
+
+Key Features:
+a. Obstacle Detection: The robot uses three ultrasonic sensors (left, center, and right) to measure the distance to obstacles.
+b. Autonomous Navigation: The robot is programmed to move forward, backward, turn left, or turn right based on the sensor readings to avoid obstacles and find its way around.
+c. Motor Control: The robot uses DC motors to move. The motors are controlled using PWM (Pulse Width Modulation) signals to adjust the speed and direction.
