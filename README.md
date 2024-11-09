@@ -1,2 +1,2 @@
-# Robotika
-Selamat datang di repository Robotika! Repository ini berisi berbagai proyek dari mata kuliah Robotika yang telah saya kerjakan selama studi saya. Proyek-proyek ini mencakup berbagai aspek dari desain, pengembangan, dan implementasi sistem robotika, termasuk kontrol, pemrograman, dan integrasi perangkat keras.
+# Embedded System
+Selamat datang di repository saya! Di sini, saya menampilkan berbagai proyek yang saya kerjakan selama studi saya, terutama yang berhubungan dengan embedded systems dan robotika. Repository ini mencakup desain, pengembangan, dan implementasi berbagai sistem embedded, termasuk kontrol, pemrograman, serta integrasi perangkat keras dan perangkat lunak. Tujuan saya adalah membangun portofolio yang menunjukkan kemampuan saya dalam bidang embedded systems, dan saya berharap dapat berbagi pengetahuan serta pengalaman dengan komunitas.
