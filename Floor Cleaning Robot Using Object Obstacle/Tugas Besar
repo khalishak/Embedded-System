@@ -1,0 +1,162 @@
+#include <NewPing.h>
+
+#define TRIGGER_PIN1  3 
+#define ECHO_PIN1     2
+#define TRIGGER_PIN2  5 
+#define ECHO_PIN2     4
+#define TRIGGER_PIN3  7 
+#define ECHO_PIN3     6
+
+const int L1 = 8;
+const int L2 = 9;
+const int R1 = 10;
+const int R2 = 11;
+
+
+int motor_speed = 255;
+
+      
+#define MAX_DISTANCE 200 // Setting jarak maksimum yang kita inginkan, biasanya maksimal sensor HC-SR04 adalah 5 Meter
+
+NewPing sonar1(TRIGGER_PIN1, ECHO_PIN1, MAX_DISTANCE);
+NewPing sonar2(TRIGGER_PIN2, ECHO_PIN2, MAX_DISTANCE);
+NewPing sonar3(TRIGGER_PIN3, ECHO_PIN3, MAX_DISTANCE);
+
+void setup() {
+  Serial.begin(9600); 
+
+  pinMode(L1, OUTPUT);
+  pinMode(L2, OUTPUT);
+  pinMode(R1, OUTPUT);
+  pinMode(R2, OUTPUT);
+}
+
+void loop() {
+
+  
+  //Membaca sensor ultrasonik
+  delay(100);                     
+  int distance1 = sonar1.ping_cm(); //kiri
+  Serial.print("Jarak Sensor 1: ");
+  Serial.print(distance1);
+  Serial.println(" cm");
+
+  // Membaca jarak dari sensor 2
+  int distance2 = sonar2.ping_cm(); //tengah
+  Serial.print("Jarak Sensor 2: ");
+  Serial.print(distance2);
+  Serial.println(" cm");
+
+  // Membaca jarak dari sensor 3
+  int distance3 = sonar3.ping_cm(); //kanan
+  Serial.print("Jarak Sensor 3: ");
+  Serial.print(distance3);
+  Serial.println(" cm");
+
+  //if else motor dc
+   if(distance2<= 20)    //if middle sensor distance is less than 20cm
+  {
+    if(distance3 > distance1)   //check if there is place at right or left
+    {
+      if((distance3 <= 20) && (distance1 <= 20))    //if there is no place on both sides
+      {
+        moveStop();
+        delay(200);
+        moveBackward();   //move back
+        delay(2000);
+      }
+      else
+      {
+        moveBackward();  //move back then turn right
+        delay(500);
+        moveRight();
+        delay(2000);
+      }
+    }
+    else 
+    if(distance3 < distance1)
+    {
+      if((distance3 <= 20) && (distance1 <= 20))
+      {
+        moveStop();   //move back
+        delay(200);
+        moveBackward();
+        delay(2000);
+      }
+      else
+      {
+        moveBackward();   //move back then turn left
+        delay(500);
+        moveLeft();
+        delay(2000);
+      }
+    }
+  }
+  
+  else 
+  if(distance3 <= 15)    //if right sensor distance is less than 20cm
+  {
+    moveLeft();   //turn left
+    delay(500);
+  }
+  else
+  if(distance1 <= 15)    //if left sensor distance is less than 20cm
+  {
+    moveRight();    //turn right
+    delay(500);
+  }
+  else
+  {
+    moveForward();    //in all other cases keep on moving forward
+//    ngepel ();
+  }
+  if (distance1>=25 && distance2>=25 && distance3>=25){
+    exit(0);
+  }
+  else {
+    moveForward();
+  }
+}
+
+
+   
+//pengaturan putar roda dc
+void moveForward()
+{
+  digitalWrite(L1, LOW); 
+  analogWrite(L2, motor_speed);
+  analogWrite(R1, motor_speed);
+  digitalWrite(R2, LOW);
+}
+
+void moveBackward()
+{
+  analogWrite(L1, motor_speed); 
+  digitalWrite(L2, LOW);
+  digitalWrite(R1, LOW);
+  analogWrite(R2, motor_speed);
+}
+
+void moveLeft()
+{
+  analogWrite(L1, motor_speed); 
+  digitalWrite(L2, LOW);
+  analogWrite(R1, motor_speed);
+  digitalWrite(R2, LOW);
+}
+
+void moveRight()
+{
+  digitalWrite(L1, LOW); 
+  analogWrite(L2, motor_speed);
+  digitalWrite(R1, LOW);
+  analogWrite(R2, motor_speed);
+}
+
+void moveStop()
+{
+  digitalWrite(L1, LOW); 
+  digitalWrite(L2, LOW);
+  digitalWrite(R1, LOW);
+  digitalWrite(R2, LOW);
+}
