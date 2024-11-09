@@ -1,1 +1,6 @@
+<<<<<<< HEAD
 "Proyek Thermo Aquatic adalah sistem berbasis teknologi untuk memantau dan mengatur suhu pada kolam budidaya ikan nila (Oreochromis niloticus), guna menciptakan kondisi lingkungan yang optimal bagi pertumbuhan dan kesehatan ikan. Sistem ini dirancang untuk mengotomatisasi kontrol suhu air kolam dengan menggunakan sensor suhu DS18B20 yang terhubung ke mikrokontroler Arduino Uno R3. Data suhu yang terdeteksi akan ditampilkan secara real-time melalui LCD I2C, dan perangkat pemanas (heater) akan diaktifkan atau dimatikan secara otomatis dengan menggunakan relay sesuai dengan kebutuhan suhu yang telah ditentukan." 
+=======
+# Embedded System
+Selamat datang di repository saya! Di sini, saya menampilkan berbagai proyek yang saya kerjakan selama studi saya, terutama yang berhubungan dengan embedded systems dan robotika. Repository ini mencakup desain, pengembangan, dan implementasi berbagai sistem embedded, termasuk kontrol, pemrograman, serta integrasi perangkat keras dan perangkat lunak. Tujuan saya adalah membangun portofolio yang menunjukkan kemampuan saya dalam bidang embedded systems, dan saya berharap dapat berbagi pengetahuan serta pengalaman dengan komunitas.
+>>>>>>> 93e507b17420a0c585027afe54f5370a0a83d311
